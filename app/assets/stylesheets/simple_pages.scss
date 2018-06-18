@@ -1,3 +1,54 @@
 // Place all the styles related to the simple_pages controller here.
+
+
+h2{ color: black;
+  text-align: center;
+  font-family: sans-serif;
+
+}
+nav{
+  z-index:1;
+}
+nav {top: 0;
+    height:60px;
+    margin:0 auto;
+    width:100%;
+    position: fixed
+    padding 20px;
+  }
+nav li{
+
+display:inline-block;
+list-style-type: none;
+float: right;
+padding: 20px 10px 20px;
+
+}
+nav ul li a {
+  text-transform: uppercase;
+  letter-spacing: 0.05cm;
+  text-decoration: none;
+  color: black;
+  font-weight:600;
+
+
+}
+
+nav ul li :hover{
+    color: yellow;
+    text-decoration: none;
+}
+footer{
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  background-color: gray;
+
+}
+.footer-element{
+  float: right;
+  margin-right: 20px;
+  padding: 15px;
+}
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
