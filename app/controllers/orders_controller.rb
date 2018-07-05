@@ -1,4 +1,7 @@
 class orderscontroller<ApplicationController
+
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
