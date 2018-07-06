@@ -21,10 +21,7 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  def landing_page
-      
-      @featured_product = Product.first
-    end
+  
   # POST /products
   # POST /products.json
   def create

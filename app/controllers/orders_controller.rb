@@ -1,4 +1,4 @@
-class orderscontroller<ApplicationController
+class OrdersController<ApplicationController
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
