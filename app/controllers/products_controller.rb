@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.
+    @products = Product.all
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
-    @order = Order.find(params[:id])
+
 
   end
 
