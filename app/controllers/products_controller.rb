@@ -4,12 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @order = Order.find(params[:id])
+
   end
 
   # GET /products/new
@@ -21,7 +23,7 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  
+
   # POST /products
   # POST /products.json
   def create
