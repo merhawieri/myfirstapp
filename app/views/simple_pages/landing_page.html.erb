@@ -2,7 +2,7 @@
 <%= @featured_product.name %>
 <div>
   <ol class="carousel-indicators">
-    <% @products.each_with_index_do |product, index| %>
+    <% @products.each_with_index do |product, index| %>
 
     <%= content_tag :li, image_tag(product.image_url), data: {target: "#carouselExampleIndicators", slide_to: index}, class: (index == 0 ? "active" : nil) %>
     <% end %>
