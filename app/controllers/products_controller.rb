@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-
+  @orders = Order.find(params[:id])
 
   end
 
@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to @product, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

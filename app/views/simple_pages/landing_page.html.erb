@@ -2,15 +2,17 @@
 <%= @featured_product.name %>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <% @products.each_with_index_do |product,index| %>
+
+    <%= content_tag :li, image_tag(product.image_url), data: {target: '#carousel-custom', slide_to: index}, class: (index == 0 ? 'active' : nil) %>
+    <% end %>
+    <li data-target="#carouselExampleIndicators" data-slide-to="Product" class="active"></li>
+
   </ol>
   <div class="carousel-inner">
     <% @products.each do |product| %>
     <div class="item<%= " active" if product == @products.first %>">
       <%= image_tag(product.image_url) %>
-
       <div class="carousel-caption d-none d-md-block">
         <%= product.name %>
       </div>
