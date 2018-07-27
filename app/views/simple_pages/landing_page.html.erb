@@ -4,9 +4,8 @@
   <ol class="carousel-indicators">
     <% @products.each_with_index_do |product,index| %>
 
-    <%= content_tag :li, image_tag(product.image_url), data: {target: '#carousel-custom', slide_to: index}, class: (index == 0 ? 'active' : nil) %>
+    <%= content_tag :li, image_tag(product.image_url), data: {target: "#carouselExampleIndicators", slide_to: index}, class: (index == 0 ? "active" : nil) %>
     <% end %>
-    <li data-target="#carouselExampleIndicators" data-slide-to="Product" class="active"></li>
 
   </ol>
   <div class="carousel-inner">
