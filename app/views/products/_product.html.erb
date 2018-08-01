@@ -1,4 +1,4 @@
-<div class='col-sm-6 col-md-4'>
+<!--<div class='col-sm-6 col-md-4'>
 
   <a href="#"><h1> <%= product.name %></h1></a>
 
@@ -8,4 +8,17 @@
   <p><%= product.price %> </p>
   <strong>$ 42</strong>
   <strong>$ 42</strong>
-</div><!-- /col -->
+</div><!-- /col --> --->
+<div class=" col-sm-6 col-md-4 product-grid">
+  <div class="image">
+    <a href="#">
+    <%= image_tag(product.image_url, class: "img-fluid") %>
+      <div class="overlay">
+        <div class="detail">View Details</div>
+      </div>
+    </a>
+  </div>
+  <p> <%= product.description %></p>
+  <h5 class="text-center"<%=product.price%</h5>
+  <a href="#" class="btn buy">BUY</a>
+</div>
