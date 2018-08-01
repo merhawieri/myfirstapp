@@ -49,8 +49,10 @@ background-color: gray;
 footer{
   height: 50px;
   width: 100%;
-  position: fixed;
+  position: absolute;
   background-color: gray;
+  padding-top: 20px;
+  margin-bottom: 20px;
 
 }
 .footer-element{
