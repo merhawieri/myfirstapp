@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>Image_url:</strong>
+  <strong>Image url:</strong>
   <%= @product.image_url %>
 </p>
 <p>
@@ -22,5 +22,6 @@
   <strong>price:</strong>
   <%= @product.price %>
 </p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<!--<%= link_to 'Edit', edit_product_path(@product) %> |-->
+<%= link_to "edit product",products_path(@product)%>
 <%= link_to 'Back', products_path %>
