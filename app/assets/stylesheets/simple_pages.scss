@@ -20,9 +20,12 @@ nav li{
 
 display:inline-block;
 list-style-type: none;
-float: right;
+float: left;
 padding: 20px 10px 20px;
 
+}
+nav form_with{
+  float: right;
 }
 nav ul li a {
   text-transform: uppercase;
