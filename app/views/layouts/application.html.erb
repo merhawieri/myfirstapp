@@ -23,7 +23,7 @@
        <li><%= link_to "products", products_path %></li>
        <li><%= link_to "orders", orders_path %></li>
 </ul>
-<%= form_with(url: products_path, method: 'get', local: true) do |form| %>
+<%= form_with(url: products_path, method: 'get', local: true) do |form|  id:"sf" class:"form-control"%>
   <%= form.label :q, 'Search for:' %>
   <%= form.text_field :q, id: 'q', value: params[:q] %>
   <%= form.submit 'Search' %>
