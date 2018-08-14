@@ -1,3 +1,8 @@
+<div class="container-fluid mw">
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <form class="form-conatiner">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -32,7 +37,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update" ,class:"btn btn-success btn-block" %>
   </div>
 <% end %>
 
@@ -41,3 +46,9 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</form><!---form end-->
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12"></div>
+</div><!--raw end here-->
+</div>
+</div>
