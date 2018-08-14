@@ -1,6 +1,9 @@
-<h2>Log in</h2>
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container-fluid bg">
+  <div class="form-container">
+    <h1>Log in</h1>
   <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
@@ -19,8 +22,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in" , class:"btn btn-success btn-block"%>
   </div>
 <% end %>
+</div><!--fcont-->
+</div><!--cont flu-->
 
 <%= render "devise/shared/links" %>
