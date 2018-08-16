@@ -5,6 +5,8 @@
 
 <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
 <div class="row">
+  <div class="col-md-4 col-sm-4 col-xs-12"></div>
+  <div class="col-md-4 col-sm-4 col-xs-12">
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
@@ -17,6 +19,9 @@
     <%= form.label :message %>
     <%= form.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
   </div>
-</div>
+
 <%= form.submit "Send", class: "form_label" %>
 <% end %>
+</div>
+<div class="col-md-4 col-sm-4 col-xs-12"></div>
+</div>
