@@ -4,8 +4,8 @@
     <div class="col-md-4 col-sm-4 col-xs-12">
       <!--form start here-->
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<form class="form-conatiner">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name),:html=>{:class=> "form-conatiner"}) do |f| %>
+<!--<form class="form-conatiner">-->
 
     <h1>Log in</h1>
   <div class="form-group">
