@@ -43,8 +43,13 @@
 <% end %>
 </div>
 </nav>
-<p class="notice"><%=notice%></p>
-<p class="alert"><%=alert %></p>
+<div class="container notifications">
+        <% if notice %>
+            <p id="notice" class="alert alert-success" role="alert"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p id="alert" class="alert alert-danger" role="alert"><%= alert %></p>
+        <% end %>
     <%= yield %>
     <footer>
       <div  class="footer-element">
