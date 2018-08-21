@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
   #@orders = Order.find(params[:id])
-
+ @comments = @product.comments.order("created_at DESC")
   end
 
   # GET /products/new
