@@ -4,8 +4,8 @@
     <title>MyfirstappT</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=>false %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track'=>false %>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,8 +43,13 @@
 <% end %>
 </div>
 </nav>
-<p class="notice"><%=notice%></p>
-<p class="alert"><%=alert %></p>
+<div class="container notifications">
+        <% if notice %>
+            <p id="notice" class="alert alert-success" role="alert"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p id="alert" class="alert alert-danger" role="alert"><%= alert %></p>
+        <% end %>
     <%= yield %>
     <footer>
       <div  class="footer-element">
