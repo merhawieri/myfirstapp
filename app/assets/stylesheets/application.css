@@ -15,6 +15,9 @@
 *= require_tree .
 *= require_self
  */
+ .link-to-text-color{
+   color: black;
+ }
  *{color:black;}
  .product-grid{
  	padding-bottom: 20px;
