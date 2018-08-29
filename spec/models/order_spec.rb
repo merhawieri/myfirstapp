@@ -6,12 +6,12 @@ describe Order do
      Product.create!(
        name: "Test product orders",
        description: "This is a test product",
-       image_url: "products/s2.jpg",
+       image_url: "images/s2.jpg",
      )
    }
 
   let(:user) {
-    User.create!(email: "test@test.com", password: "test123")
+    User.create!(email: "merakassals@gmail.com", password: "mera119991")
   }
 
   it "is a valid order" do
