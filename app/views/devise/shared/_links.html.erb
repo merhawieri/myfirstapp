@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=>false %>
-</head>
-<body>
+
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: "link-to-text-color"%> <br />
+  <%= link_to "Log in", new_session_path(resource_name)%> <br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
@@ -29,5 +24,3 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
-</body>
-</html>
