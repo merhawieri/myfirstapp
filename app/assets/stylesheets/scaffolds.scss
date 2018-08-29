@@ -21,7 +21,7 @@ pre {
 }
 
 a {
-  color: black;
+  color: #000;
 
   &:visited {
     color: #666;
@@ -82,4 +82,5 @@ div {
 
 label {
   display: block;
+  color: black;
 }
