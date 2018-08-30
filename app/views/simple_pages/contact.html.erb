@@ -8,8 +8,8 @@
 
 <%= flash[:notice] %>
 
-<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
-
+<!--<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>-->
+  <%= form_tag("/simple_pages/thank_you") do %>
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
