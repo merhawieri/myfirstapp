@@ -8,11 +8,11 @@
 
 <%= flash[:notice] %>
 
-<!--<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
+<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
 
-  div class="form-group">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, , placeholder: "Enter Name" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
   </div>
   <div class="form-group">
     <%= form.label :email %>
@@ -20,26 +20,10 @@
   </div>
   <div class="form-group">
     <%= form.label :message %>
-    <%= form.text_area :message,  required: "required"class: "form-control", placeholder: "Enter Message", rows: 5  %>
+    <%= form.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
   </div>
 
-<%= form.submit "Send", class: "form-label" %>-->
-
-
-<%= form_tag("/simple_pages/thank_you") do %>
-    <div class="form-group">
-      <%= label_tag :name %>
-      <%= text_field_tag(:name, "", class: "form-control", placeholder: "Enter Name", required: "true") %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :email, "Email Address" %>
-      <%= text_field_tag(:email, "", class: "form-control", placeholder: "Enter Email", required: "true", type: "email") %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :message %>
-      <%= text_area_tag(:message, "", class: "form-control", placeholder: "Enter Message", required: "true", rows: 5) %>
-    </div>
-    <%= submit_tag("Send", class: 'btn btn-danger search') %>
+<%= form.submit "Send", class: "form_label" %>
 <% end %>
 </div>
 <div class="col-md-4 col-sm-4 col-xs-12"></div>
