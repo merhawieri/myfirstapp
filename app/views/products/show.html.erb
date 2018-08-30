@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<!--<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
@@ -21,7 +21,10 @@
 <p>
   <strong>price:</strong>
   <%= @product.price %>
-</p>
+</p>-->
+<div class="container">
+	<%= render 'show' %>
+</div>
 
 <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>
 <%= @product.highest_rating_comment %>
