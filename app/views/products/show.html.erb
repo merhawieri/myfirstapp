@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<!--<p>
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
@@ -11,8 +11,9 @@
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
+  <!--<strong>Image url:</strong>
+  <%= @product.image_url %>-->
+  <%= image_tag(@product.image_url, class: "img-fluid img-zoom", size: "350x350", data_zoom_img: "product.image_url") %>
 </p>
 <p>
   <strong>Colour:</strong>
@@ -21,10 +22,8 @@
 <p>
   <strong>price:</strong>
   <%= @product.price %>
-</p>-->
-<div class="container">
-	<%= render 'show' %>
-</div>
+</p>
+
 
 <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>
 <%= @product.highest_rating_comment %>
