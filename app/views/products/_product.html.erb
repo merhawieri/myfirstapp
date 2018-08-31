@@ -11,7 +11,8 @@
 </div> /col -->
 <div class=" col-sm-6 col-md-4 product-grid">
   <div class="image">
-    <a href="products/show">
+    <!--<a href="productsshow">-->
+    <%= link_to 'Show', product %>
     <%= image_tag(product.image_url, class: "img-fluid") %>
       <div class="overlay">
         <div class="detail">View Details</div>
