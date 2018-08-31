@@ -9,8 +9,8 @@
   <strong>$ 42</strong>
   <strong>$ 42</strong>
 </div> /col -->
-<!--<div class=" col-sm-6 col-md-4 product-grid">
-  <div class="image">
+<div class=" col-sm-6 col-md-4 product-grid">
+  <!--<div class="image">
    <%= link_to(image_tag(product.image_url), {:controller => "products",
 :action => "show"}) %>
     <a href="productsshow"
@@ -20,26 +20,13 @@
         <div class="detail">View Details</div>
       </div>
     </a>
-  </div>
+  </div>-->
+  <%= link_to image_tag(product.image_url, class: "img-responsive"), product %>
 
   <p> <%= product.name %></p>
   <p> <%= product.description %></p>
   <h5><%= product.colour %> </h5>
-  <h5 class="text-center"><%=product.price%></h5>-->
-  <% cache product do %>
-  <div class="item col-sm-12 col-md-6 col-lg-4 col-xl-3">
-    <h3 class="product-name"><%=product.name%></h3>
-    <%= link_to product do %>
-      <div class="product-img" style="background-image: url(<%=image_path(product.image_url)%>)">
-      </div>
-    <%end%>
-    <div class="description-item">
-      <p class="product-description"><%=product.description%></p>
-      <hr>
-      <p class ="price"><%=product.price%> €</p>
-      <% logger.debug "Product: #{product.name}" %>
-    </div>
-<% end %>
+  <h5 class="text-center"><%=product.price%></h5>
 
   <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
