@@ -11,6 +11,7 @@
 </div> /col -->
 <div class=" col-sm-6 col-md-4 product-grid">
   <div class="image">
+      <%= link_to "About", products_show_path %>
     <!--<a href="productsshow">-->
     <a href="/products/<%= @show.product.id %>">
     <%= image_tag(product.image_url, class: "img-fluid") %>
