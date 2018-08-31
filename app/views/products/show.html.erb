@@ -1,4 +1,13 @@
+<div class="container-fluid" id="contacts">
+   <div class="raw">
+      <div class="col-lg-6col-md-6">
+
 <p id="notice"><%= notice %></p>
+<p>
+  <!--<strong>Image url:</strong>
+  <%= @product.image_url %>-->
+  <%= image_tag(@product.image_url, class: "img-fluid img-zoom", size: "350x350", data_zoom_img: "product.image_url") %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -10,11 +19,7 @@
   <%= @product.description %>
 </p>
 
-<p>
-  <!--<strong>Image url:</strong>
-  <%= @product.image_url %>-->
-  <%= image_tag(@product.image_url, class: "img-fluid img-zoom", size: "350x350", data_zoom_img: "product.image_url") %>
-</p>
+
 <p>
   <strong>Colour:</strong>
   <%= @product.colour %>
@@ -23,7 +28,8 @@
   <strong>price:</strong>
   <%= @product.price %>
 </p>
-
+</div>
+<div class="col-lg-6 col-md-6">
 
 <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>
 <%= @product.highest_rating_comment %>
@@ -39,4 +45,6 @@
 <%= link_to 'Back', products_path %>
 <div>
    <%= will_paginate @comments %>
+</div>
+</div>
 </div>
