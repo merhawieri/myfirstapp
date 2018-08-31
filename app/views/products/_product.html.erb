@@ -21,16 +21,17 @@
       </div>
     </a>
   </div>-->
+  <div>
   <%= link_to image_tag(product.image_url, class: "img-responsive"), product %>
 
-
+</div>
   <p> <%= product.name %></p>
   <p> <%= product.description %></p>
   <h5><%= product.colour %> </h5>
   <h5 class="text-center"><%=product.price%></h5>
   <br>
 
-  <!--<td><%= link_to 'Show', product %></td>-->
+  <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
