@@ -22,7 +22,7 @@
     </a>
   </div>-->
 
-      <p><%=link_to(image_tag(@product.image_url, class:"product_image"), product) %></p>
+    <!--  <p><%=link_to(image_tag(@product.image_url, class:"product_image"), product) %></p>
 
 
   <p> <%= product.name %></p>
@@ -35,4 +35,24 @@
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
-</div>
+</div>--->
+% cache product do %>
+<section class="col-md-6 col-lg-6 col-xs-12 product_section">
+  <p class="product_title"><%= product.name %></p>
+  <section class="product_image">
+    <% if product.image_url.present? %>
+      <%=link_to(image_tag(product.image_url, class:"product_image"), product) %>
+    <% end %>
+  </section>
+
+  <p class="product_description"><%= product.description %></p>
+
+  <p>Colour: <%= product.colour %></p>
+  <p>Price: $<%= product.price %></p>
+<% end %>
+  <ul class="inline_list">
+    <li><%= link_to 'Show', product %>|</li>
+    <li><%= link_to 'Edit', edit_product_path(product) %>|</li>
+    <li> <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+</section>
