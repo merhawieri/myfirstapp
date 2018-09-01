@@ -18,15 +18,23 @@
  body{
    position: relative;
  }
- footer {
- 	padding-top: 20px;
- 	padding-bottom: 30px;
- 	text-align: center;
- 	color: white;
- 	border-top: 1px solid white;
- 	background-color: black;
- 	height: 20px;
+ footer{
+   padding-bottom: 30px;
+   padding-top: 20px;
+  	text-align: center;
+   height: 50px;
+   width: 100%;
+   background-color: gray;
+ display: inline-block;
+ color: white;
  }
+ .footer-element{
+   float: right;
+   margin-right: 20px;
+   padding: 15px;
+ }
+
+
 
  .footer .container {
  	justify-content: flex-end;
