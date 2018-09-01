@@ -1,24 +1,7 @@
-<!--<div class='col-sm-6 col-md-4'>
 
-  <a href="#"><h1> <%= product.name %></h1></a>
-
-  <%= image_tag(product.image_url, class: "img-fluid") %>
-  <p> <%= product.description %></p>
-  <p><%= product.colour %> </p>
-  <p><%= product.price %> </p>
-  <strong>$ 42</strong>
-  <strong>$ 42</strong>
-</div> /col -->
 <div class=" col-sm-6 col-md-4 product-grid">
   <div class="image">
     <p><%= link_to image_tag(product.image_url, :size => "260x260"), product %></p>
-
-    <!--<a href="#">-->
-    <!--<%= image_tag(product.image_url, class: "img-fluid") %>-->
-      <!--<div class="overlay"
-        <div class="detail">View Details</div>
-      </div>--->
-  <!--  </a>-->
   </div>
   <p> <%= product.name %></p>
   <p> <%= product.description %></p>
@@ -27,5 +10,4 @@
   <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <a href="#" class="btn buy">BUY</a>
 </div>
