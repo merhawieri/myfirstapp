@@ -1,4 +1,11 @@
 // Place all the styles related to the simple_pages controller here.
+
+
+
+
+
+
+
 body {
   height: 100%;
   margin: 0;
@@ -67,12 +74,19 @@ background-size: cover;
 
 }
 .carousel {
-  margin-top:4%;
+  padding-top: 50px;
+	margin-left: -15px;
+	margin-right: -15px;
 }
 .carousel-inner > .item > img {
   margin: 0 auto;
   height: 500px;
 }
+#carousel-example-generic {
+	padding-top: 50px;
+}
+
+
 
 footer {
   background-color: grey;
