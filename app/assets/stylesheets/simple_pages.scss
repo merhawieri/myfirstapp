@@ -1,7 +1,12 @@
 // Place all the styles related to the simple_pages controller here.
-body{
-  position: relative;
+body {
+  height: 100%;
+  margin: 0;
+  margin-bottom: 40px;
 }
+
+
+
 
 h2{ color: black;
   text-align: center;
@@ -62,16 +67,17 @@ background-size: cover;
 }
 
 
-footer{
-  height: 50px;
+footer {
+  background-color: grey;
+  color: white;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  background-color: gray;
-display: inline-block;
+  height: 40px;
+  overflow: hidden;
 }
-.footer-element{
-  float: right;
-  margin-right: 20px;
-  padding: 15px;
+footer p {
+  padding: 8px;
 }
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
