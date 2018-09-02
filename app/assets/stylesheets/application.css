@@ -15,7 +15,7 @@
 *= require_tree .
 *= require_self
  */
- body{
+ /*body{
    position: relative;
  }
  footer{
@@ -91,4 +91,4 @@
  .buy:hover{
  	background-color: #434444;
  	color: #fff;
- }
+ }*/
