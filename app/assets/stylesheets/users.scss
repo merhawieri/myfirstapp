@@ -1,24 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-.mw{
-  color: black;
+.mw {
+	color: black;
 }
-.mw{background-image:url('/assets/backt.jpg');
 
-width: 100%;
-height: 100vh;
-background-repeat: no-repeat;
-background-size: cover;
-
+.mw {
+	background-image: url('/assets/backt.jpg');
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-.form-conatiner{
-  border:0px solid #fff;
-  padding: 50px 60px;
-  margin-top: 20vh;
-  -webkit-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
-box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+
+.form-conatiner {
+	border: 0px solid #fff;
+	padding: 50px 60px;
+	margin-top: 20vh;
+	-webkit-box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
+	box-shadow: -1px 4px 26px 11px rgba(0, 0, 0, 0.75);
 }
