@@ -74,7 +74,7 @@ background-size: cover;
 
 }
 .carousel-control:hover{
-  color: none;
+  background-color: transparent;
 }
 
 
@@ -95,7 +95,8 @@ background-size: cover;
 .carousel-control.left, .carousel-control.right {
 
 background-image:none;
-color: rgba(0,0,0,0.3);
+/*color: rgba(0,0,0,0.3);*/
+color: transparent;
 }
 
 
