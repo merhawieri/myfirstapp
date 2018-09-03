@@ -73,7 +73,11 @@ background-repeat: no-repeat;
 background-size: cover;
 
 }
-.carousel-control:hover,
+.carousel-control:hover{
+  color: none;
+}
+
+
 
 .carousel-control:focus {
 
