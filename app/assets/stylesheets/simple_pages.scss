@@ -57,7 +57,10 @@ nav ul li :hover{
     color: yellow;
     text-decoration: none;
 }
-
+.content {
+  padding-top: 64px;
+  height: 100vh;
+}
 
 ol.carousel-indicators li{
 background-color: gray;
@@ -73,6 +76,7 @@ background-repeat: no-repeat;
 background-size: cover;
 
 }
+
 .carousel {
   padding-top: 50px;
 	margin-left: -15px;
