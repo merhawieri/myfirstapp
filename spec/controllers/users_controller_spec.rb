@@ -2,28 +2,32 @@ require 'rails_helper'
 
 describe UsersController, type: :controller do
 
-  let(:user) { User.create!(email: 'abioke@gmail.com', password: '1234567890')}
-  let(:astr) { User.create!(email: 'robiykey@gmail.com', password: '9876543210') }
+  let(:user1) { User.create!(email: 'juyt@gmail.com', password: '12345yt90')}
+  let(:astr) { User.create!(email: 'jiuyt@gmail.com', password: '9876ou43210') }
   describe 'GET #show'do
 
        context 'when user is logged in' do
-
+         before(:each) do
+                sign_in user1
+              end
          it 'loads correct user details' do
-           get :show, params: { id: user.id }
+           get :show, params: { id: user1.id }
            expect(response).to be_ok
-           expect(assigns(:user)).to eq user
+           expect(assigns(:user)).to eq user1
          end
        end
 
        context 'when a user is not logged in' do
          it "redirects to login if user is not logged in" do
-           get :show, params: { id: user.id }
+           get :show, params: { id: user1.id }
            expect(response).to redirect_to(new_user_session_path)
          end
        end
 
        context 'when a user is logged in try to acces other users page' do
-
+         before(:each) do
+                sign_in astr
+              end
          it 'redirect to home' do
            get :show, params: { id: user.id }
            expect(response).to have_http_status(302)

@@ -11,7 +11,7 @@ describe Order do
    }
 
   let(:user) {
-    User.create!(email: "merakassals@gmail.com", password: "mera119991")
+    User.create!(email: "mhyus@gmail.com", password: "merayr119991")
   }
 
   it "is a valid order" do

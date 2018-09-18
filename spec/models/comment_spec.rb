@@ -12,7 +12,7 @@ describe Comment do
     }
 
     let(:user) {
-      User.create!(email: "merakassala@gmail.com", password: "mera111991")
+      User.create!(email: "merfd2akassala1@gmail.com", password: "agt111991")
     }
 
     it "is invalid without a comment" do

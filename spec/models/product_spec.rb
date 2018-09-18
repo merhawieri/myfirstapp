@@ -6,7 +6,7 @@ describe Product do
 
     let(:product) { Product.create!(name: "mn bike", description: "awesome bike",colour: "red", price: "190") }
 
-    let(:user) { User.create!(email: "random@emil.com", password: "testitnow") }
+    let(:user) { User.create!(email: "ronndom@emil.com", password: "tesyrtnow") }
     before do
       product.comments.create!(rating: 1, user: user, body: "Awful bike!")
       product.comments.create!(rating: 3, user: user, body: "Ok bike!")
