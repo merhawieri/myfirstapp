@@ -1,26 +1,79 @@
+################################################################
+# Validates from the model
+################################################################
+# validates :body, presence: true
+# validates :user, presence: true
+# validates :product, presence: true
+# validates :rating, numericality: { only_integer: true }
+################################################################
+
 require 'rails_helper'
 
 describe Comment do
-  context "if product has comments" do
 
-    let(:product) {
-      Product.create!(
-        name: "Productcomment-test",
-        description: "this is comment for production",
-        image_url: "image/bike.jpg"
+  ########################################################
+  # Comment validation tests
+  ########################################################
+  context "validation ->" do
+
+    before(:each) do
+      @user = FactoryBot.create(:user)
+      @product = FactoryBot.create(:product)
+    end
+
+    it "all good -> valid" do
+      @comment = FactoryBot.create(:comment,
+        user_id: @user.id,
+        product_id: @product.id
       )
-    }
-
-    let(:user) {
-      User.create!(email: "merfd2akassala1@gmail.com", password: "agt111991")
-    }
-
-    it "is invalid without a comment" do
-      expect(Comment.new(rating: 5, user: user)).not_to be_valid
+      expect(@comment).to be_valid
     end
 
-    it "is invalid with a rating grater than 5" do
-      expect(Comment.new(rating: 6, user: user, body: "invalid comment")).not_to be_valid
+    it "no rating -> invalid" do
+      # Factories don't work for this test -> They do not allow empty/nil fields
+      expect(Comment.new(
+        body: "b",
+        user_id: @user.id,
+        product_id: @product.id
+      )).not_to be_valid
     end
+
+    it "no body -> invalid" do
+      # Factories don't work for this test -> They do not allow empty/nil fields
+      expect(Comment.new(
+        user_id: @user.id,
+        product_id: @product.id,
+        rating: 3
+      )).not_to be_valid
+    end
+
+    it "no user_id -> invalid" do
+      # Factories don't work for this test -> They do not allow empty/nil fields
+      expect(Comment.new(
+        body: "b",
+        product_id: @product.id,
+        rating: 3
+      )).not_to be_valid
+    end
+
+    it "no product_id -> invalid" do
+      # Factories don't work for this test -> They do not allow empty/nil fields
+      expect(Comment.new(
+        body: "b",
+        user_id: @user.id,
+        rating: 3
+      )).not_to be_valid
+    end
+
+    it "incorrect rating type -> invalid" do
+      # Factories don't work for this test -> They do not allow wrong types
+      expect(Comment.new(
+        body: "b",
+        user_id: @user.id,
+        product_id: @product.id,
+        rating: "a"
+      )).not_to be_valid
+    end
+
   end
 end

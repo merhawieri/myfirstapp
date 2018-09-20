@@ -1,86 +1,138 @@
 require 'rails_helper'
 
 describe ProductsController, type: :controller do
-  before do
-    let(:product) { Product.create!(name: "mn bike", description: "awesome bike",colour: "red", price: "190") }
-    let(:user) {
-      User.create!(email: "merhytkassla@gmail.com", password: "mejuya11991")
-    }
 
-
+  before(:each) do
+    @admin = FactoryBot.create(:user, admin: true)
+    @user = FactoryBot.create(:user)
+    @product = FactoryBot.create(:product)
   end
 
-  describe 'GET #index' do
-    it 'renders products index template' do
-      get :index
-      expect(response).to be_ok
-      expect(response).to render_template('index')
-    end
-  end
+  ########################################################
+  # Test: Get the products INDEX page
+  ########################################################
+  describe 'GET #index ->' do
 
-  context 'GET #show' do
-    it 'renders the login page' do
-      get :show, params: {id: product}
-      expect(response).to redirect_to new_user_session_path
-    end
-  end
-
-  context 'GET #new' do
-    before do
-      sign_in user
-    end
-    it 'redirects to new product page' do
-      get :new, params: {id: product}
-      expect(response).to be_ok
-    end
-  end
-
-  context 'GET #edit' do
-    it 'redirects to login page' do
-      get :edit, params: {id: product.id}
-      expect(response).to redirect_to new_user_session_path
-    end
-  end
-
-  context "POST #create" do
-    before do
-      sign_in user
-    end
-
-    it "creates a new product" do
-      let(:product) { Product.create!(name: "mn bike", description: "awesome bike",colour: "red", price: "190") }
-      expect(response).to be_successful
-    end
-    it "cannot create a product" do
-       expect(Product.new(price:'string', description: '')).not_to be_valid
-    end
-  end
-
-  describe "PATCH #update" do
-    context "with good data" do
-      before do
-        sign_in user
-      end
-      it "updates the product and redirects" do
-        patch :update, id: product.id, product: { name: "mbic",  price: "85", description: 'nice'}
-        expect(response).to be_redirect
+    context 'not logged in ->' do
+      it 'all good' do
+        get :index
+        expect(response).to be_ok
       end
     end
-    context "with bad data" do
-      it "does not change the product, and redirects to login page" do
-        patch :update, id: product.id, product: { name: "mbic", price: "68"}
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
-    context 'DELETE' do
-      before do
-        sign_in user
-      end
 
-      it 'can delete a product' do
-        delete :destroy, params: { id: product.id }
-        expect(response).to redirect_to products_url
+    context 'admin signed in ->' do
+      it "all good" do
+        sign_in @admin
+        get :index
+        expect(response).to be_ok
       end
     end
+
+    context 'non-admin signed in ->' do
+      it "all good" do
+        sign_in @user
+        get :index
+        expect(response).to be_ok
+      end
+    end
+
   end
+
+  ########################################################
+  # Test: Get the products SHOW page
+  ########################################################
+  describe 'GET #show ->' do
+
+    context 'not logged in ->' do
+      it 'redirect to login' do
+        get :show, params: { id: @product.id }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'admin signed in ->' do
+      it "all good" do
+        sign_in @admin
+        get :show, params: { id: @product.id }
+        expect(response).to be_ok
+      end
+    end
+
+    context 'non-admin signed in ->' do
+      it "all good" do
+        sign_in @user
+        get :show, params: { id: @product.id }
+        expect(response).to be_ok
+      end
+    end
+
+  end
+
+  ########################################################
+  # Test: Get the products EDIT page
+  ########################################################
+  describe 'GET #show ->' do
+
+    context 'not logged in ->' do
+      it 'redirect to login' do
+        get :edit, params: { id: @product.id }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'admin signed in ->' do
+      it "all good" do
+        sign_in @admin
+        get :edit, params: { id: @product.id }
+        expect(response).to be_ok
+      end
+    end
+
+    context 'non-admin signed in ->' do
+      it "all good" do
+        sign_in @user
+        get :edit, params: { id: @product.id }
+        expect(response).to be_ok
+        # expect(response).to redirect_to(root_path)
+        # expect(flash[:alert]).to be_present
+        # expect(flash[:alert]).to match("You are not authorized to access this page.")
+      end
+    end
+
+  end
+
+  ########################################################
+  # Test: DESTROY product
+  ########################################################
+  describe 'DESTROY product ->' do
+
+    context 'not logged in ->' do
+      it 'redirect to login' do
+        delete :destroy, params: { id: @product.id }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'admin signed in ->' do
+      it "all good" do
+        sign_in @admin
+        delete :destroy, params: { id: @product.id }
+        expect(response.body).to have_content("You are being redirected.")
+        # expect(response.body).to have_content("Are you sure?")
+      end
+    end
+
+    context 'non-admin signed in ->' do
+      it "all good" do
+        sign_in @user
+        delete :destroy, params: { id: @product.id }
+        expect(response.body).to have_content("You are being redirected.")
+        # expect(response).to redirect_to(root_path)
+        # expect(flash[:alert]).to be_present
+        # expect(flash[:alert]).to match("You are not authorized to access this page.")
+      end
+    end
+
+  end
+
 end
