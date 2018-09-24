@@ -1,71 +1,25 @@
-################################################################
-# Validates from the model
-################################################################
-# validates :name, presence: true
-################################################################
-
 require 'rails_helper'
+ describe Product do
+   let(:product) {
+     # product_category = Category.create!(product_category: "Sessions", name: "30 Minute Midgrade", colour: "blue", description: "Lifechanging Coaching.", price: 45 )
+     Product.create!(name: "30 Minute Midgrade", colour: "blue", description: "Lifechanging Coaching.", price: 45)
+   }
 
-describe Product do
+   let(:user) { FactoryBot.create(:user) }
 
-  ########################################################
-  # Product validation tests
-  ########################################################
-  context "validation ->" do
-
-    it "all good -> valid" do
-      @product = FactoryBot.build(:product, description: nil)
-      expect(@product).to be_valid
+    before do
+      product.comments.create!(rating: 1, user: user, body: "Bad Session")
+      product.comments.create!(rating: 3, user: user, body: "Ok Session")
+      product.comments.create!(rating: 5, user: user, body: "Great Session!")
     end
 
-    it "no name -> not valid" do
-      # Cannot be done with factory -> active record does not allow nameless products
-      expect(Product.new(description: "Nice bike")).not_to be_valid
+    it "returns the average rating of all comments" do
+      expect(product.average_rating).to eq 3
     end
 
-  end
-
-  ########################################################
-  # Product name tests
-  ########################################################
-  context "name ->" do
-
-    before(:each) do
-      @product = FactoryBot.build(:product, name: "race bike")
+    it "is not valid without a name" do
+      product=FactoryBot.build(:product, name: nil)
+      expect(product.valid?).not_to be_truthy
     end
 
-    it "equal to" do
-      expect(@product.name).to eq "race bike"
-    end
-
-    it "not equal to" do
-      expect(@product.name).not_to eq "racebike"
-    end
-
-  end
-
-  ########################################################
-  # Product average rating tests
-  ########################################################
-  context "average rating ->" do
-    before(:each) do
-      @user = FactoryBot.create(:user)
-      @product = FactoryBot.create(:product)
-    end
-
-    before(:each) do
-      @product.comments.create!(rating: 1, user_id: @user.id, body: "Awful bike!")
-      @product.comments.create!(rating: 3, user_id: @user.id, body: "Ok bike!")
-      @product.comments.create!(rating: 5, user_id: @user.id, body: "Great bike!")
-    end
-
-    it "equal to" do
-      expect(@product.average_rating).to eq 3
-    end
-
-    it "not equal to" do
-      expect(@product.average_rating).not_to eq 4
-    end
-
-  end
 end

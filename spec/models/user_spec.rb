@@ -1,44 +1,14 @@
-################################################################
-# Validates from the model
-################################################################
-# validates :email, presence: true
-# validates :password, presence: true
-# validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-################################################################
-
 require 'rails_helper'
 
 describe User do
 
-  ########################################################
-  # User validation tests
-  ########################################################
-  context "validation ->" do
+  let(:user) { FactoryBot.create(:user, password: "test123") }
 
-    it "all good -> valid" do
-      @user = FactoryBot.build(:user)
-      expect(@user).to be_valid
-    end
-
-    it "no email -> not valid" do
-      @user = FactoryBot.build(:user, email: nil)
-      expect(@user).not_to be_valid
-    end
-
-    it "no password -> not valid" do
-      @user = FactoryBot.build(:user, password: nil)
-      expect(@user).not_to be_valid
-    end
-
-    it "bad email format 1 -> not valid" do
-      @user = FactoryBot.build(:user, email: "user-email.com")
-      expect(@user).not_to be_valid
-    end
-
-    it "bad email format 2 -> not valid" do
-      @user = FactoryBot.build(:user, email: "user@email-com")
-      expect(@user).not_to be_valid
-    end
-
+  it "is a valid user" do
+    expect(user.email).to match (/jim_[0-9\.]+@example.com/)
   end
+
+  it "is not a valid password" do
+    expect(user.password).to eq "test123"
+   end
 end

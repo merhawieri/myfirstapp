@@ -1,44 +1,33 @@
-################################################################
-# Validates from the model
-################################################################
-# validates :user, presence: true
-# validates :product, presence: true
-################################################################
-
 require 'rails_helper'
 
 describe Order do
 
-  ########################################################
-  # Order validation tests
-  ########################################################
-  context "validation ->" do
-    before(:each) do
-      @product = FactoryBot.create(:product)
-      @user = FactoryBot.create(:user)
-    end
+  let(:product) { FactoryBot.create(:product) }
 
-    it "all good -> valid" do
-      @order = FactoryBot.create(:comment,
-        user_id: @user.id,
-        product_id: @product.id
+  let(:user) { FactoryBot.create(:user) }
+
+  it "is a valid order" do
+    expect(Order.new(
+      user: user,
+      product: product,
+      total: 100
       )
-      expect(@order).to be_valid
-    end
+    ).to be_valid
+  end
 
-    it "no product id -> not valid" do
-      # Factories don't work for this test -> They do not allow empty/nil fields
-      expect(Order.new(
-        user_id: @user.id
-      )).not_to be_valid
-    end
+  it "is not valid without a user" do
+    expect(Order.new(
+      product: product,
+      total: 100
+      )
+    ).not_to be_valid
+  end
 
-    it "no user id -> not valid" do
-      # Factories don't work for this test -> They do not allow empty/nil fields
-      expect(Order.new(
-        product_id: @product.id,
-      )).not_to be_valid
-    end
-
+  it "is not valid without product" do
+    expect(Order.new(
+      user: user,
+      total: 100
+      )
+    ).not_to be_valid
   end
 end
