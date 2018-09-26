@@ -2,7 +2,7 @@ require 'rails_helper'
  describe Product do
    let(:product) {
      # product_category = Category.create!(product_category: "Sessions", name: "30 Minute Midgrade", colour: "blue", description: "Lifechanging Coaching.", price: 45 )
-     Product.create!(name: "30 Minute Midgrade", colour: "blue", description: "Lifechanging Coaching.", price: 45)
+     Product.create!(name: "mnbike", colour: "blue", description: "Lifechanging Coaching.", price: "45")
    }
 
    let(:user) { FactoryBot.create(:user) }
