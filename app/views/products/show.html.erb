@@ -33,6 +33,9 @@
       <div>
          <%= render 'comments' %>
       </div>
+      <%= form_with(url: '/payments/create') do |form| %>
+  <%= render partial: "shared/stripe_checkout_button" %>
+<% end %>
       <!--<%= link_to 'Edit', edit_product_path(@product) %> |-->
       <%= link_to "edit product",products_path(@product)%>
       <%= link_to 'Back', products_path %>
