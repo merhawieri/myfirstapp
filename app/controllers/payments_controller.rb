@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_user!
+
   def create
         @product = Product.find(params[:product_id])
         @user = current_user
@@ -11,6 +11,7 @@ class PaymentsController < ApplicationController
                 currency: "usd",
                 source: token,
                 description: params[:stripeEmail]
+                 receipt_email: params[:stripeEmail]
             )
 
         if charge.paid
