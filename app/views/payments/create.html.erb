@@ -1,10 +1,6 @@
-<!--<div class="container">
+<div class="container">
   <div class="sticky-top">
     <p class="product_title"> Thank you for your purchase! In case you have any questions please </p>
     <%= link_to 'Contact us', simple_pages_contact_path, class:"btn btn-danger" %>
   </div>
-</div>-->
-<%= form_with(url: '/payments/create') do |form| %>
-  <%= render partial: "shared/stripe_checkout_button" %>
-  <%= hidden_field_tag(:product_id, @product.id) %>
-<% end %>
+</div>
