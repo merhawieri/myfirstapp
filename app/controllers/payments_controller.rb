@@ -14,9 +14,9 @@ class PaymentsController < ApplicationController
           :receipt_email => params[:stripeEmail]
         )
         if charge.paid
-          Order.create(product_id: @product.id, user_id: @user.id,
+          Order.create(product_id: @product.id,
         total: @product.price.to_i)
-        UserMailer.order_created(@user,@product).deliver_now
+
         end
 
       rescue Stripe::CardError => e
