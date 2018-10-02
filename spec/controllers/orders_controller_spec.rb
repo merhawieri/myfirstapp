@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OrdersController, type: :controller do
-  @user = User.create!(email: "myrandom@email.com", password: "Yellow123")
+  @user = User.create!(email: "myrandom@gmail.com", password: "Yellow923")
 
   context 'unauthenticated user' do
     it 'redirects to login' do
