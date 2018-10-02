@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
           :currency => "usd",
           :source => token,
           :description => params[:stripeEmail],
-          :receipt_email => params[:stripeEmail]
+
         )
         if charge.paid
           Order.create(product_id: @product.id,
