@@ -15,7 +15,7 @@ describe Comment do
       )
     }
 
-    let(:user) { FactoryBot.create(:user) }
+    let(:user) {User.create!(email: "myrandom@email.com", admin: false, password: "Yellow123")}
 
     it "is invalid without a comment" do
       expect(Comment.new(rating: 5, user: user)).not_to be_valid

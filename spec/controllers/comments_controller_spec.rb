@@ -2,7 +2,7 @@ require 'rails_helper'
 describe CommentsController, type: :controller do
   context 'autehnticated user' do
     before(:each) do
-      @user = FactoryBot.create(:user)
+      @user = User.create!(email: "myrandom@email.com", admin: false, password: "Yellow123")
       sign_in @user
     end
     it "can add comments" do

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe Order do
 
-  let(:product) { FactoryBot.create(:product) }
+  let(:product) { Product.create!(name: "mnbike", colour: "blue", description: "Lifechanging Coaching.", price: "45") }
 
-  let(:user) { FactoryBot.create(:user) }
+  let(:user) {User.create!(email: "myrandom@email.com", admin: false, password: "Yellow123")}
 
   it "is a valid order" do
     expect(Order.new(

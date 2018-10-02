@@ -5,7 +5,8 @@ require 'rails_helper'
      Product.create!(name: "mnbike", colour: "blue", description: "Lifechanging Coaching.", price: "45")
    }
 
-   let(:user) { FactoryBot.create(:user) }
+   let(:user) {User.create!(email: "myrandom@email.com", admin: false, password: "Yellow123")}
+
 
     before do
       product.comments.create!(rating: 1, user: user, body: "Bad Session")
