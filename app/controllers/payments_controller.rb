@@ -11,7 +11,7 @@ class PaymentsController < ApplicationController
           :currency => "usd",
           :source => token,
           :description => params[:stripeEmail],
-
+          :receipt_email => params[:stripeEmail]
         )
         if charge.paid
           Order.create(product_id: @product.id,
@@ -25,6 +25,8 @@ class PaymentsController < ApplicationController
         err = body[:error]
         flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
       end
+
+ redirect_to product_path(@product), notice: "Thank you for your purchase."
      end
 
 
