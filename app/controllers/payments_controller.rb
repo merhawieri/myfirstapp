@@ -7,10 +7,10 @@ token = params[:stripeToken]
       # This will charge the user's card:
       begin
         charge = Stripe::Charge.create(
-          :amount =>(@product.price * 100).to_i,
-          :currency =>"usd",
-          :source  => token,
-          :description => params[:stripeEmail]
+          amount: (@product.price * 100).to_i,
+          currency: "usd",
+          source: token,
+          description: params[:stripeEmail]
 
         )
         if charge.paid
@@ -25,7 +25,7 @@ token = params[:stripeToken]
         err = body[:error]
         flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
       end
-#redirect_to product_path(@product)
+redirect_to product_path(@product)
 
      end
 
