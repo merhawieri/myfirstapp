@@ -10,11 +10,8 @@ token = params[:stripeToken]
           amount: (@product.price * 100).to_i,
           currency: "usd",
           source: token,
-          description: "Magical Unicorn Dust '#{@product.name}'",
-        metadata: {
-          'Email-address:' => params[:stripeEmail]
-        },
-        receipt_email: params[:stripeEmail]
+          description: params[:stripeEmail]
+
         )
         if charge.paid
           Order.create(product_id: @product.id,
@@ -29,7 +26,7 @@ token = params[:stripeToken]
         flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
       end
 redirect_to product_path(@product)
- 
+
      end
 
 
