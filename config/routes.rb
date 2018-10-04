@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :products do
   resources :comments
-  resources :payments
+
 end
+  resources :payments
   resources :users
   get 'simple_pages/about'
   get 'simple_pages/contact'
