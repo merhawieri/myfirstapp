@@ -14,7 +14,7 @@ token = params[:stripeToken]
 
         )
         if charge.paid
-          Order.create(product_id: @product.id,
+          Order.create!(product_id: @product.id,
         total: @product.price.to_i)
  flash[:success] = "Your payment was processed successfully"
         end
