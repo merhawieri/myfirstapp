@@ -28,7 +28,7 @@ token = params[:stripeToken]
         flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
       end
 
-
+redirect_to product_path(@product), notice: "#{@product.name} has been purchased successfully!"
      end
 
 
