@@ -9,10 +9,10 @@ class ProductsController < ApplicationController
 
         @products = Product.search(search_term)
         # return our filtered list here
-        logger.debug "My search found #{@products.count} products"
+
       else
         @products = Product.all
-        logger.debug "There is a total of #{@products.count} products"
+
 
       end
   end
