@@ -8,7 +8,7 @@ class SimplePagesController < ApplicationController
       end
 
       def thank_you
-         #byebug
+         byebug
         @name = params[:name]
         @email = params[:email]
         @message = params[:message]
