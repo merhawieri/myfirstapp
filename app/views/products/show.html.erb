@@ -3,7 +3,7 @@
    <div class="col-lg-6 col-md-6">
       <p id="notice"><%= notice %></p>
       <div class="product-im">
-         <%= image_tag(@product.image_url ,class: "image-fluid img-thumbnail img-zoom", width:"350", data_zoom_image: @product.image_url )%>
+         <%= image_tag(@product.image_url ,class: "image-fluid img-thumbnail img-zoom", size:"350*350", data_zoom_image: @product.image_url )%>
       </div>
       <p>
          <strong>Name:</strong>
