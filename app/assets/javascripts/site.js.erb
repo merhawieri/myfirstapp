@@ -19,7 +19,8 @@ var refreshRating = function() {
 
 $(document).on('turbolinks:load ajaxSuccess', function(){
   refreshRating();
-  $('.img-zoom').elevateZoom({
+  $('.img-zoom').elevateZoom();});
+    /*{
     zoomType	: "lens",
 
     lensShape : "round",
@@ -27,4 +28,4 @@ $(document).on('turbolinks:load ajaxSuccess', function(){
     easing    : true
   });
   $('.alert, .notice, .error').delay(3000).fadeOut()
-});
+});*/
