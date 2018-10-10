@@ -31,15 +31,16 @@
       <div>
          <%= render 'new_comment' %>
       </div>
+      Views:
+  <div class="badge badge-pill badge-warning">
+    <%= @product.views %>
+  </div>
+  Latest reviewer:&nbsp;&nbsp;
+  <div class="badge badge-pill badge-warning">
+    <%= @product.get_recent_reviewer %>
+  </div>
+
       <div>
-        Views:
-    <div class="badge badge-pill badge-warning">
-      <%= @product.views %>
-    </div>
-    Latest reviewer:&nbsp;&nbsp;
-    <div class="badge badge-pill badge-warning">
-      <%= @product.get_recent_reviewer %>
-    </div>
 
          <%= render 'comments' %>
       </div>
