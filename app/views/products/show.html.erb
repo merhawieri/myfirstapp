@@ -28,18 +28,19 @@
       </p>
       <%= @product.highest_rating_comment %>
 
-  <span class="badge badge-pill badge-warning">
-    <%= @product.views %>
-  </span>
-  Latest reviewer:&nbsp;&nbsp;
-  <span class="badge badge-pill badge-warning">
-    <%= @product.get_recent_reviewer %>
-  </span>
-
       <div>
          <%= render 'new_comment' %>
       </div>
       <div>
+        Views:
+    <span class="badge badge-pill badge-warning">
+      <%= @product.views %>
+    </span>
+    Latest reviewer:&nbsp;&nbsp;
+    <span class="badge badge-pill badge-warning">
+      <%= @product.get_recent_reviewer %>
+    </span>
+
          <%= render 'comments' %>
       </div>
 
