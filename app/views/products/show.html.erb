@@ -33,13 +33,13 @@
       </div>
       <div>
         Views:
-    <span class="badge badge-pill badge-warning">
+    <div class="badge badge-pill badge-warning">
       <%= @product.views %>
-    </span>
+    </div>
     Latest reviewer:&nbsp;&nbsp;
-    <span class="badge badge-pill badge-warning">
+    <divclass="badge badge-pill badge-warning">
       <%= @product.get_recent_reviewer %>
-    </span>
+    </div>
 
          <%= render 'comments' %>
       </div>
