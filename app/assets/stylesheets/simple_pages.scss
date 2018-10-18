@@ -11,11 +11,47 @@ h2 {
 	text-align: center;
 	font-family: sans-serif;
 }
-
-nav {
-	z-index: 1;
+.bg-light {
+  background-color: $aquamarine !important;
 }
 
+.navbar {
+  i {
+    font-size: 3vh !important;
+    text-decoration: underline;
+  }
+
+  a {
+    color: $black !important;
+  }
+  a:hover {
+    color: $white !important;
+  }
+}
+
+.btn-outline-success {
+  color:$black;
+  border-color: $black;
+}
+
+.btn-outline-success:hover {
+  color: $white;
+  background-color: $black;
+  border-color: $black;
+
+}
+
+.custom-link {
+    a {
+      color: $red !important;
+    }
+
+  a:hover {
+    color: $aquamarine !important;
+  }
+}
+
+/*
 nav {
 	top: 0;
 	height: 60px;
@@ -48,7 +84,7 @@ nav ul li :hover {
 	color: yellow;
 	text-decoration: none;
 }
-
+*/
 ol.carousel-indicators li {
 	background-color: gray;
 }
