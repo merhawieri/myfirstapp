@@ -15,22 +15,10 @@ h2 {
   background-color: blue !important;
 }
 
+
+
+
 .navbar {
-
-
-  a {
-    color: black !important;
-  }
-  a:hover {
-    color: white !important;
-  }
-}
-
-
-
-
-/*
-nav {
 	top: 0;
 	height: 60px;
 	margin: 0 auto;
@@ -38,7 +26,7 @@ nav {
 	position: fixed padding 20px;
 }
 
-nav li {
+.navbar li {
 	display: inline-block;
 	list-style-type: none;
 	float: left;
@@ -50,7 +38,7 @@ nav li {
 	margin-right: 40px;
 }
 
-nav ul li a {
+.navbar ul li a {
 	text-transform: uppercase;
 	letter-spacing: 0.05cm;
 	text-decoration: none;
@@ -58,11 +46,11 @@ nav ul li a {
 	font-weight: 600;
 }
 
-nav ul li :hover {
+.navbar ul li :hover {
 	color: yellow;
 	text-decoration: none;
 }
-*/
+
 ol.carousel-indicators li {
 	background-color: gray;
 }
