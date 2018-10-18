@@ -16,10 +16,7 @@ h2 {
 }
 
 .navbar {
-  i {
-    font-size: 3vh !important;
-    text-decoration: underline;
-  }
+
 
   a {
     color: $black !important;
@@ -29,17 +26,6 @@ h2 {
   }
 }
 
-.btn-outline-success {
-  color:$black;
-  border-color: $black;
-}
-
-.btn-outline-success:hover {
-  color: $white;
-  background-color: $black;
-  border-color: $black;
-
-}
 
 
 
