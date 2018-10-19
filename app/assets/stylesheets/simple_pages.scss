@@ -15,9 +15,7 @@ h2 {
 	font-family: sans-serif;
 }
 
-nav {
-	z-index: 1;
-}
+
 
 nav {
 	top: 0;
@@ -97,8 +95,8 @@ color: transparent;
 }
 .carousel {
 	padding-top: 0px;
-
-
+	margin-left: -15px;
+	margin-right: -15px;
 	width: 100%;
 }
 
