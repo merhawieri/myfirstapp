@@ -25,7 +25,7 @@ nav {
 	margin: 0 auto;
 	width: 100%;
 	position: relative;
-  background-color: blue;
+  background-color:#2b1700;
 }
 
 nav li {
@@ -39,7 +39,11 @@ nav li {
 	float: right;
 	margin-right: 40px;
 }
-
+/*Light Classy Grey: #f1f0ee
+Sky Blue: #8cbcd0
+cholcolate #2b1700
+walnut #43270f
+kelly #4cbb17*/
 nav ul li a {
 	text-transform: uppercase;
 	letter-spacing: 0.05cm;
@@ -68,7 +72,7 @@ ol.carousel-indicators li {
 	height: 100vh;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding-top: 70px;
+	margin-top: 70px;
 }
 
 .carousel-control:hover {
