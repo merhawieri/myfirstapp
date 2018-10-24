@@ -9,10 +9,10 @@ class ProductsController < ApplicationController
 
         @products = Product.search(search_term)
         # return our filtered list here
-logger.debug "My search found #{@products.count} products"
+#logger.debug "My search found #{@products.count} products"
       else
         @products = Product.all
- logger.debug "There is a total of #{@products.count} products"
+ #logger.debug "There is a total of #{@products.count} products"
 
       end
   end
@@ -21,6 +21,7 @@ logger.debug "My search found #{@products.count} products"
   # GET /products/1.json
   def show
   #@orders = Order.find(params[:id])
+   @product.viewed!
  @comments = @product.comments.order("created_at DESC").page(params[:page]).per_page(5)
   end
 
