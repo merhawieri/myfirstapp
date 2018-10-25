@@ -16,7 +16,7 @@ config.assets.initialize_on_precompile = false
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     # config/application.rb
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache'
+    config.cache_store = :redis_store, "redis://localhost:6379/0/cache"
 
   end
 end
