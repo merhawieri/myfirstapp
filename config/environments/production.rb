@@ -100,9 +100,9 @@ config.action_mailer.default_url_options = { host: 'bikejax.herokuapp.com' }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.web_socket_server_url ="wss://#{bikejax.herokuapp.com}/cable"
 
 
-  #config.web_socket_server_url = "wss://bikejax.herokuapp.com/cable"
+
+  config.web_socket_server_url = "wss://bikejax.herokuapp.com/cable"
 config.action_cable.allowed_request_origins = ['https://bikejax.herokuapp.com', 'http://bikejax.herokuapp.com']
 end
