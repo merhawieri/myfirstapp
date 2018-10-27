@@ -3,6 +3,6 @@ FactoryBot.define do
     sequence(:name) { |n| "Bike #{n}" }
     description "fantastic bike"
     colour "red"
-    Price "75"
+    price "75"
   end
 end
