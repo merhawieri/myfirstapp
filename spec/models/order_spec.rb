@@ -1,33 +1,17 @@
 require 'rails_helper'
 
 describe Order do
+  context "when a new order is created" do
+    it "is valid with a user and product" do
+      expect(FactoryBot.build(:order)).to be_valid
+    end
 
-  let(:product) { Product.create!(name: "mnbike", colour: "blue", description: "Lifechanging Coaching.", price: "45") }
+    it "is not valid without a product" do
+      expect(FactoryBot.build(:order, product:nil)).not_to be_valid
+    end
 
-  let(:user) {User.create!(email: "myrandom@email.com", admin: false, password: "Yellow123")}
-
-  it "is a valid order" do
-    expect(Order.new(
-      user: user,
-      product: product,
-      total: 100
-      )
-    ).to be_valid
-  end
-
-  it "is not valid without a user" do
-    expect(Order.new(
-      product: product,
-      total: 100
-      )
-    ).not_to be_valid
-  end
-
-  it "is not valid without product" do
-    expect(Order.new(
-      user: user,
-      total: 100
-      )
-    ).not_to be_valid
+    it "is not valid without a user" do
+      expect(FactoryBot.build(:order, user:nil)).not_to be_valid
+    end
   end
 end
