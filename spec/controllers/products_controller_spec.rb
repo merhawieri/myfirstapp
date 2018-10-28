@@ -1,183 +1,82 @@
 require 'rails_helper'
 
-#describe ProductsController, type: :controller do
-  #context 'unauthenticated user' do
-    #it 'cannot edit' do
-      #product = FactoryBot.create(:product)
-      #get :edit, params:{id: product.id}
-      #expect(response).to redirect_to(new_user_session_path)
-      #expect(flash[:alert]).to match("You need to sign in or sign up before continuing.")
-    #end
-  #end
-  describe ProductsController, type: :controller do
+describe ProductsController, type: :controller do
+  before do
+    @product = FactoryBot.create(:product)
+    @user = FactoryBot.create(:user)
+  end
 
   describe 'GET #index' do
+    it 'renders products index template' do
+      get :index
+      expect(response).to be_ok
+      expect(response).to render_template('index')
+    end
+  end
+
+  context 'GET #show' do
+    it 'renders the login page' do
+      get :show, params: {id: @product}
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
+
+  context 'GET #new' do
     before do
-      FactoryBot.create(:product)
-      FactoryBot.create(:product, name: "car", price: 22)
+      sign_in @user
     end
-
-    context 'user performes search'
-      #Explicitly render views to check if they include the search term
-      render_views
-
-      it 'renders only products including the search term' do
-        get :index, params: {q: "bike"}
-        expect(response).to be_ok
-        expect(response.body).to include("bike")
-        expect(response.body).to_not include("car")
-      end
-
-
-    context 'user performes search' do
-      #Explicitly render views to check if they include the search term
-      render_views
-
-      it 'renders all products' do
-        get :index
-        expect(response).to be_ok
-        expect(response.body).to include("bike")
-        expect(response.body).to include("car")
-      end
+    it 'redirects to new product page' do
+      get :new, params: {id: @product}
+      expect(response).to be_ok
     end
   end
 
-  describe 'GET #show' do
-
-    context 'when individual product is clicked' do
-      before do
-        FactoryBot.create(:product, id: 2)
-      end
-
-      it 'renders product page' do
-         get :show, params: {id: 2}
-         expect(response).to be_ok
-      end
+  context 'GET #edit' do
+    it 'redirects to login page' do
+      get :edit, params: {id: @product.id}
+      expect(response).to redirect_to new_user_session_path
     end
   end
 
-  describe 'GET #new' do
-    context 'when admin is logged in' do
-      before do
-        @user = FactoryBot.create(:admin)
-        sign_in @user
-      end
-
-      it 'renders the product new form' do
-        get :new
-        expect(response).to be_ok
-      end
-    end
-
-    context 'when regular user is logged in' do
-      before do
-        @user = FactoryBot.create(:user)
-        sign_in @user
-      end
-
-      it 'redirects to root_url' do
-        get :new
-        expect(response).to redirect_to(root_url)
-      end
-    end
-  end
-
-  describe 'GET #edit' do
-    context 'when admin is logged in' do
-      before do
-        FactoryBot.create(:product, id: 23)
-        @user = FactoryBot.create(:admin)
-        sign_in @user
-      end
-
-      it 'renders the product edit form' do
-        get :edit, params: {id: 23}
-        expect(response).to be_ok
-      end
-    end
-
-    context 'when regular user is logged in' do
-      before do
-
-        FactoryBot.create(:product, id: 23)
-
-        @user = FactoryBot.create(:user)
-        sign_in @user
-      end
-
-      it 'redirects to root_url' do
-        get :edit, params: {id: 23}
-        expect(response).to redirect_to(root_url)
-      end
-    end
-  end
-
-  describe 'POST #create' do
-    context 'when admin is logged in' do
-      before do
-        @user = FactoryBot.create(:admin)
-        sign_in @user
-      end
-
-      # both 'creates article' tests do the same
-      # leaving them for personal reference
-      it "creates product" do
-        article_params = FactoryBot.attributes_for(:product)
-        expect { post :create, params: {product: article_params} }.to change(Product, :count).by(1)
-      end
-
-      it "creates product" do
-        expect{ post :create, params: {product: FactoryBot.attributes_for(:product)}
-        }.to change(Product,:count).by(1)
-        expect(response).to redirect_to("http://test.host/products/2")
-      end
-
-      it "creates product" do
-        article_params = FactoryBot.attributes_for(:product)
-        expect{ post :create, params: {product: article_params, name: "new name"}
-        }.to change(Product,:count).by(1)
-
-      end
-
-    end
-
-    context 'when regular user is logged in' do
-      before do
-        @user = FactoryBot.create(:user)
-        sign_in @user
-      end
-
-      it "does not create an article" do
-        article_params = FactoryBot.attributes_for(:product)
-        expect { post :create, params: {product: article_params} }.to change(Product, :count).by(0)
-        expect(response).to redirect_to(root_url)
-      end
-    end
-  end
-
-  describe 'PUT #update' do
+  context "POST #create" do
     before do
+      sign_in @user
+    end
+
+    it "creates a new product" do
       @product = FactoryBot.create(:product)
+      expect(response).to be_successful
     end
-
-    it 'updates the product' do
-        article_params = FactoryBot.attributes_for(:product)
-        expect{ put :update, params: {id: @product.id, product: article_params }
-        }.to change(Product,:count).by(0)
-        expect(flash[:notice]).to eq 'Product was successfully updated.'
+    it "cannot create a product" do
+       expect(Product.new(price:'string', description: '')).not_to be_valid
     end
   end
 
-
-  describe 'DELETE #destroy' do
-    before do
-      @product = FactoryBot.create(:product)
+  describe "PATCH #update" do
+    context "with good data" do
+      before do
+        sign_in @user
+      end
+      it "updates the product and redirects" do
+        patch :update, id: @product.id, product: { name: "notepad",  price: "5", description: 'nice'}
+        expect(response).to be_redirect
+      end
     end
+    context "with bad data" do
+      it "does not change the product, and redirects to login page" do
+        patch :update, id: @product.id, product: { name: "notepad", price: "four"}
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+    context 'DELETE' do
+      before do
+        sign_in @user
+      end
 
-    it 'deletes the product' do
-      expect { delete :destroy, params: { id: @product.id } }.to change(Product, :count).by(-1)
-      expect(flash[:notice]).to eq 'Product was successfully destroyed.'
+      it 'can delete a product' do
+        delete :destroy, params: { id: @product.id }
+        expect(response).to redirect_to products_url
+      end
     end
   end
-
 end
