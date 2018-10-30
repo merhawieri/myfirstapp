@@ -11,7 +11,6 @@ ruby '2.4.1'
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.1.1'
 gem 'rails-controller-testing'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 gem 'jquery-rails'
@@ -52,11 +51,7 @@ group :development, :test do
 end
 group :development, :test do
 
-
-  gem 'rspec-rails', '~> 3.7'
-    gem "factory_bot_rails", "~> 4.0"
 end
-
 group :development, :test do
   gem 'sqlite3'
 end
@@ -79,6 +74,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rspec-rails', '~> 3.7'
+  gem "factory_bot_rails", "~> 4.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
