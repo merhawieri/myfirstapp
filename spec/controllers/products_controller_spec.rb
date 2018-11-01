@@ -58,13 +58,13 @@ describe ProductsController, type: :controller do
         sign_in @user
       end
       it "updates the product and redirects" do
-        patch :update, id: @product.id, product: { name: "bike", colour:black, price: "75", description: 'nice'}
+        patch :update, id: @product, product: { name: "bike", colour:"black", price: "75", description: 'nice'}
         expect(response).to be_redirect
       end
     end
     context "with bad data" do
       it "does not change the product, and redirects to login page" do
-        patch :update, id: @product.id, product: { name: "notepad", price: "four"}
+        patch :update, id: @product, product: { name: "notepad", price: "four"}
         expect(response).to redirect_to new_user_session_path
       end
     end
