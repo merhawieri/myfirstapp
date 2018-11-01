@@ -33,7 +33,7 @@ describe ProductsController, type: :controller do
 
   context 'GET #edit' do
     it 'redirects to login page' do
-      get :edit, params: {id: @product.id}
+      get :edit, params: {id: @product}
       expect(response).to redirect_to new_user_session_path
     end
   end
@@ -58,7 +58,7 @@ describe ProductsController, type: :controller do
         sign_in @user
       end
       it "updates the product and redirects" do
-        patch :update, id: @product.id, product: { name: "notepad",  price: "5", description: 'nice'}
+        patch :update, id: @product.id, product: { name: "bike", colour:black, price: "75", description: 'nice'}
         expect(response).to be_redirect
       end
     end
