@@ -17,7 +17,7 @@ describe ProductsController, type: :controller do
   context 'GET #show' do
     it 'renders the login page' do
       get :show, params: {id: @product}
-      expect(response).to redirect_to new_user_session_path
+      expect(response).to redirect_to (new_user_session_path)
     end
   end
 
@@ -33,8 +33,8 @@ describe ProductsController, type: :controller do
 
   context 'GET #edit' do
     it 'redirects to login page' do
-      get :edit, params: {id: @product}
-      expect(response).to redirect_to new_user_session_path
+      get :edit, params: {id: @product.id}
+      expect(response).to redirect_to (new_user_session_path)
     end
   end
 
@@ -58,14 +58,14 @@ describe ProductsController, type: :controller do
         sign_in @user
       end
       it "updates the product and redirects" do
-        patch :update, id: @product, product: { name: "bike", colour:"black", price: "75", description: 'nice'}
+        patch :update, id: @product.id, product: { name: "notepad",  price: "5", description: 'nice'}
         expect(response).to be_redirect
       end
     end
     context "with bad data" do
       it "does not change the product, and redirects to login page" do
-        patch :update, id: @product, product: { name: "notepad", price: "four"}
-        expect(response).to redirect_to new_user_session_path
+        patch :update, id: @product.id, product: { name: "notepad", price: "four"}
+        expect(response).to redirect_to (new_user_session_path)
       end
     end
     context 'DELETE' do
