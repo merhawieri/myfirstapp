@@ -5,7 +5,7 @@ describe ProductsController, type: :controller do
   before do
     @product = FactoryBot.create(:product)
     @user = FactoryBot.create(:user)
-    @admin=FactoryBot.create(:admin)
+
   end
 
   describe 'GET #index' do
@@ -53,24 +53,11 @@ describe ProductsController, type: :controller do
        expect(Product.new(price:'string', description: '')).not_to be_valid
     end
   end
+  describe 'PATCH #update' do it "requires login" do
 
-  describe "PATCH #update" do
-    context "with good data" do
-      before do
-        sign_in @user
-      end
-      it "updates the product and redirects" do
+  patch :update, params: {id: @product.id}
+expect(response).to redirect_to new_user_session_path end
 
-        patch :update, id: @product.id, product:{ name: "notepad",  price: "5", description: 'nice'}
-        expect(response).to be_redirect
-      end
-    end
-    context "with bad data" do
-      it "does not change the product, and redirects to login page" do
-        patch :update, id: @product.id, product:{ name: "notepad", price: "four"}
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
     context 'DELETE' do
       before do
         sign_in @user
