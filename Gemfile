@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'nokogiri'
-gem 'rack', '~> 2.0.1'
+
+gem "rack", ">= 2.0.6"
 gem 'rspec'
 gem 'cancancan', '~> 2.0'
 ruby '2.4.1'
