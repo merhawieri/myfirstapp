@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [  :edit,:update, :destroy]
-before_action :authenticate_user!, except: [ :index]
+before_action :authenticate_user!, except: [ :show,:index]
 
   # GET /products
   # GET /products.json
@@ -17,7 +17,7 @@ before_action :authenticate_user!, except: [ :index]
   def show
   #@orders = Order.find(params[:id])
 
-  # @product.viewed!
+   @product.viewed!
    @comments = @product.comments.order("created_at DESC").page(params[:page]).per_page(5)
   end
 

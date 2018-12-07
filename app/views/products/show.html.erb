@@ -6,7 +6,7 @@
         <div class="product-im">
            <%= image_tag(@product.image_url,  id:"productimage",class: "image-fluid img-thumbnail img-zoom", size: "350x350", data_zoom_image: @product.image_url )%>
         </div>
-
+        <p>Views: <span class="badge"><%= @product.views %></span></p>
         <p>
            <strong>Name:</strong>
            <%= @product.name %>
