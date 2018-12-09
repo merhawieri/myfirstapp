@@ -7,4 +7,4 @@ test:
 production:
   adapter: postgresql
   url: postgres://emfebescnnecnm:dc945e09d480fa387343fed8a479efed9249fe2879cc6e122bc1a5786e60af34@ec2-50-16-241-91.compute-1.amazonaws.com:5432/d6clvg8lrj3fec
-  channel_prefix: bikejax_production
+  channel_prefix: myfirstapp_production
