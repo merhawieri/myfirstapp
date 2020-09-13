@@ -1,3 +1,3 @@
 
 
-i am merhawi woldemichael . i am doing this course to get a position as web developer.
+i am merhawi woldemichael . ruby on rails   developement student.
